@@ -1,0 +1,27 @@
+{
+    "name": "Mary's Travel Inspo",
+    "version": "1.0",
+    "description": "When a new tab is opened, a picture of a random city
+    (from a tagged Unsplash photo) will be displayed along with the cheapest
+    flight to that location",
+    "browser_action": {
+      "default_icon": "icon.png",
+      "default_title": "Travel Inspo"
+    },
+    "chrome_url_overrides": {
+      "newtab": "newtab.html"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["jquery-3.3.1.min.js", "newtab.js"],
+        "persistent": false,
+        "css": ["newtab.css"]
+      }
+    ],
+    "web_accessible_resources": [
+      "newtab.css"
+    ],
+    "permissions": ["activeTab", "https://*/*", "geolocation"],
+    "manifest_version": 2
+  }
